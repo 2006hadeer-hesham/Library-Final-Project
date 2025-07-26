@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body style="background: linear-gradient(135deg, #d6e6f2 0%, #f0f8ff 100%);">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><i class="fa-solid fa-book-open-cover"
+                        style="background-color: #34495E; border-radius: 0 30px 0 0;"></i>Bookle</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./detils.html">Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./cart.html">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Favorites</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact.html">Contact Page</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="shop">
+        <h3><i>Shop Details</i></h3>
+        <a style="border: none;color: black;" href="./home.html"> Home</a> <span
+            style="color: cadetblue; font-size: small;"> > Shop Details</span>
+
+    </div>
+    <div id="remove">
+        <button onclick="removeAll()" class="btn btn-warning"><i class="fa-solid fa-trash"></i>  Remove All</button>
+
+    </div>
+
+    <div id="cartbook">
+       
+    </div>
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer1">
+            <div>
+                <i class="fa-solid fa-phone-office"></i>
+                <p>Call Us 7/24</p>
+                <h3>+208-555-0112</h3>
+            </div>
+            <div>
+                <i class="fa-solid fa-message-sms"></i>
+                <p>Mack a Quote</p>
+                <h3>example@gmail.com</h3>
+            </div>
+            <div>
+                <i class="fa-solid fa-globe-pointer"></i>
+                <p style="color: white;">Opening hour</p>
+                <h3>Sunday -fri:9aM</h3>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="footer2">
+            <div>
+                <h2>Bookle</h2>
+                <p>Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur lacinia mollis
+                </p>
+                <span><i class="fa-brands fa-facebook"></i><i class="fa-brands fa-square-instagram"></i> <i
+                        class="fa-brands fa-twitter"></i> <i class="fa-brands fa-facebook-messenger"></i></span>
+                <br><br>
+                <h3>Categories</h3>
+                <h4><i class="fa-solid fa-share"></i>Novel Books</h4>
+                <h4><i class="fa-solid fa-share"></i> Poetry Books</h4>
+                <h4><i class="fa-solid fa-share"></i>Political Books</h4>
+                <h4><i class="fa-solid fa-share"></i> History Books</h4>
+            </div>
+
+            <div>
+                <h2>Costumers Support</h2>
+                <br><br>
+                <h5><i class="fa-solid fa-share"></i> store List</h5>
+                <h5><i class="fa-solid fa-share"></i> Opening Hours</h5>
+                <h5><i class="fa-solid fa-share"></i> Contact Us</h5>
+                <h5><i class="fa-solid fa-share"></i> Return Policy</h5>
+                <br>
+                <br>
+
+                <h3>Newsletter</h3>
+
+                <p>sign up searing weakly newseletter to get the latest update</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+         const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const cartbook = document.getElementById("cartbook");
+
+  if (cartItems.length === 0) {
+    cartbook.innerHTML = "<p>No items in cart</p>";
+  } else {
+    cartItems.forEach((item, index) => {
+      const { book, service } = item;
+      const div = document.createElement("div");
+      div.classList.add("cartdiv");
+
+      div.innerHTML = `
+        <img src="${service.iconUrl}" width="50" alt="${book.jpg}"  onerror="this.onerror=null; this.src='./book3.jpg';"/>
+        <h5>${service.serviceName}</h5>
+        <p>${service.shortDescription}</p>
+        <p>Price: ${service.price}</p>
+        <p>Rating: ${service.rating}</p>
+        <hr>
+        <img src="${book.coverImage}" />
+        <h3>${book.title}</h3>
+        <p>${book.description}</p>
+        <button onclick="removeItem(${index})" class="btn btn-danger">🗑️ Remove</button>
+      `;
+
+      cartbook.appendChild(div);
+    });
+  }
+//         const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+//         var cartbook = document.getElementById("cartbook");
+// if (cartItems.length === 0) {
+//   cartbook.innerHTML = "<p>No items in cart</p>";
+// } else {
+//   cartItems.forEach((item, index) => {
+//      const { book, service } = item;
+//     const div = document.createElement("div");
+//     div.classList.add("cartdiv");
+//     div.innerHTML = `
+      
+     
+//       <img src="${service.iconUrl}" width="50"/>
+//       <h5>${service.serviceName}</h5>
+//       <p>${service.shortDescription}</p>
+//       <p>Price: ${service.price}</p>
+//       <p>Rating: ${service.rating}</p>
+//       <hr>
+//       <img src="${book.coverImage}" />
+//       <h3>${book.title}</h3>
+//       <p>${book.description}</p>
+//       <button onclick="removeItem(${index})" class="btn btn-danger">🗑️ Remove</button>
+      
+      
+
+      
+
+//     `;
+//     cartbook.appendChild(div);
+//   });
+// }
+           
+function removeItem(index) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.splice(index, 1); 
+  localStorage.setItem("cart", JSON.stringify(cart));
+  location.reload(); 
+}
+
+function removeAll() {
+  localStorage.removeItem("cart");
+  location.reload(); 
+}
+
+        // fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json")
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         const services = data.services;
+        //         var servicesdiv = document.getElementById("services");
+        //         services.forEach(service => {
+        //             const y = document.createElement("div");
+
+        //             y.classList.add("y")
+        //             y.innerHTML = `
+        // <img src="${service.iconUrl}" />
+        // <h4><i>${service.serviceName}</i> </h4> 
+        // <p><i>${service.shortDescription}</i> </p>
+        
+        // <h2>${service.price} </h2>
+        // <h2>${service.rating} </h2>
+
+
+
+        // `
+        //             servicesdiv.appendChild(y);
+
+
+        //         })
+        //     })
+    </script>
+</body>
+
+</html>

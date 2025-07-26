@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><i class="fa-solid fa-book-open-cover"
+                        style="background-color: #34495E; border-radius: 0 30px 0 0;"></i>Bookle</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./detils.html">Detils</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./cart.html">Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Favorites</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./contact.html">Contact Page</a>
+                        </li>
+                    </ul>
+                    <button
+                        style="color: white;  background: linear-gradient(45deg , #fbd3e9, #a1c4fd);;padding: 10px; border-radius: 20px;"
+                        onclick="location.href='Login.html'">Login</button><span id="buttonlogin"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="photo">
+       <div>
+            <h5 style="color: chocolate;"><i>Up To 30% Off</i></h5>
+            <h3><i>
+                    Get Your New Book
+                    With The Best Price</i></h3>
+                  
+           <img src="./book.jpg" alt="">
+    </div>
+            <button>Shop Now</button>
+        </div>
+        
+
+    <div class="box1" data-aos="fade-up" >
+        <div><i class="fa-solid fa-truck"></i>
+            <h2>Return & Refund</h2>
+            <p>Money back guarantee</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-user-music"></i>
+            <h2>Quality Support</h2>
+            <p>Always omline 24/7</p>
+        </div>
+
+
+        <div>
+            <i class="fa-solid fa-envelope-open"></i>
+            <h2>Secure Payment </h2>
+            <p>30% off by subscribing</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-envelopes-bulk"></i>
+            <h2>Daily Offers</h2>
+            <p>20% off by subscribing</p>
+        </div>
+    </div>
+
+    <div class="featured" data-aos="fade-up">
+        <div>
+            <h2>Featured Books</h2>
+        </div>
+        <div>
+            <button
+                style="border-radius: 20px; padding: 10px;color: darkgrey; background-color: white; border: 1px solid darkgray;">
+                Explore More</button>
+        </div>
+
+    </div>
+
+    <swiper-container class="mySwiper" slides-per-view="3" space-between="30" pagination="true"
+        pagination-clickable="true" navigation="true" centered-slides="false" autoplay-delay="2500"
+        autoplay-disable-on-interaction="false" loop="true"  data-aos="fade-up">
+
+        <swiper-slide> </swiper-slide>
+
+        <div class="autoplay-progress" slot="container-end">
+            <!-- <svg viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="20"></circle>
+      </svg>
+      <span></span> -->
+        </div>
+    </swiper-container>
+
+
+
+  
+    <div id="Stuff">
+
+    </div>
+
+
+
+    <section class="top-categories"  data-aos="fade-up">
+         <h1 style="color: darkblue; padding: 10px; ">Top Categories Book</h1>
+        <swiper-container class="cat-swiper" slides-per-view="3" space-between="30" navigation="true" pagination="true"
+            loop="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+
+            <!-- Category Slide 1 -->
+            <swiper-slide class="cat-slide">
+                <div class="cat-circle">
+
+                </div>
+
+            </swiper-slide>
+
+        </swiper-container>
+    </section>
+
+   
+
+
+
+
+
+
+
+
+
+    <footer class="footer"  data-aos="fade-up">
+        <div class="footer1">
+            <div>
+                <i class="fa-solid fa-phone-office"></i>
+                <p>Call Us 7/24</p>
+                <h3>+208-555-0112</h3>
+            </div>
+            <div>
+                <i class="fa-solid fa-message-sms"></i>
+                <p>Mack a Quote</p>
+                <h3>example@gmail.com</h3>
+            </div>
+            <div>
+                <i class="fa-solid fa-globe-pointer"></i>
+                <p style="color: white;">Opening hour</p>
+                <h3>Sunday -fri:9aM</h3>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="footer2">
+            <div>
+                <h2>Bookle</h2>
+                <p>Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur lacinia mollis
+                </p>
+                <span><i class="fa-brands fa-facebook"></i><i class="fa-brands fa-square-instagram"></i> <i
+                        class="fa-brands fa-twitter"></i> <i class="fa-brands fa-facebook-messenger"></i></span>
+                <br><br>
+                <h3>Categories</h3>
+                <h4><i class="fa-solid fa-share"></i>Novel Books</h4>
+                <h4><i class="fa-solid fa-share"></i> Poetry Books</h4>
+                <h4><i class="fa-solid fa-share"></i>Political Books</h4>
+                <h4><i class="fa-solid fa-share"></i> History Books</h4>
+            </div>
+
+            <div>
+                <h2>Costumers Support</h2>
+                <br><br>
+                <h5><i class="fa-solid fa-share"></i> store List</h5>
+                <h5><i class="fa-solid fa-share"></i> Opening Hours</h5>
+                <h5><i class="fa-solid fa-share"></i> Contact Us</h5>
+                <h5><i class="fa-solid fa-share"></i> Return Policy</h5>
+                <br>
+                <br>
+
+                <h3>Newsletter</h3>
+
+                <p>sign up searing weakly newseletter to get the latest update</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+          AOS.init();
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json")
+                .then(response => response.json())
+                .then(data => {
+                    const books = data.books;
+                    const swiperEl = document.querySelector(".mySwiper");
+                    books.forEach(book => {
+
+
+                        let slide = document.createElement("swiper-slide");
+                        slide.classList.add("class");
+                        slide.innerHTML = `
+             <img src="${book.coverImage}" />
+             <h3>${book.title}</h3>
+             <p>${book.description} </p>
+             `;
+
+                        swiperEl.appendChild(slide);
+                    });
+                })
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+
+            fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json")
+                .then(response => response.json())
+                .then(data => {
+                    const books = data.books;
+                    const catswiper = document.querySelector(".cat-swiper");
+                    books.forEach(book => {
+
+
+                        let x = document.createElement("swiper-slide");
+                        x.classList.add("class2");
+                        x.innerHTML = `
+             <img src="${book.coverImage}" />
+             <h3>${book.title}</h3>
+             <p> subcategory :${book.subcategory} </p>
+             <p>language: ${book.language} </p>
+             `;
+
+                        catswiper.appendChild(x);
+                    });
+
+                    customElements.whenDefined('swiper-container').then(() => {
+                        if (catswiper) {
+                            catswiper.initialize();
+                        }
+                    });
+                });
+        });
+
+        // const name = JSON.parse(localStorage.getItem(y));
+        // if (name) {
+        //     document.getElementById("buttonlogin").textContent = `${name}`;
+        // }
+
+
+
+             fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json")
+  .then(response => response.json())
+  .then(data => {
+  
+    const users = data.users;
+    var stuff = document.getElementById("Stuff");
+    users.forEach(user =>{
+        var stuffdiv = document.createElement("div") ;
+        stuffdiv.classList.add("classstaff") ;
+        stuffdiv.innerHTML=`
+        
+   
+      <img src=" ${user.profileImageUrl} " alt ="./book3.jpg" onerror="this.onerror=null; this.src='./book3.jpg';"/>
+   
+     <p>Name : ${user.name} </p>
+     <p>Email: ${user.email} </p>
+     <p>City: ${user.city} </p>
+     <p>Country : ${user.country} </p>
+     <h4>Phone :${user.phone} </h4>
+
+ 
+        `;
+        stuff.appendChild(stuffdiv) ;
+    });
+
+  });
+
+
+    </script>
+</body>
+
+</html>

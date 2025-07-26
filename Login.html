@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <style>
+
+    </style>
+
+
+</head>
+
+<body
+    style="background-color: #a1c4fd; margin: 0;height: 100vh;display: flex; justify-content: center; align-items: center;  ">
+
+    <form id="form">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">UserName</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary" id="buttonlogin">Submit</button>
+
+        <div class="text-center mt-3">
+            <button type="button" class="btn btn-link" id="signUpToggle">Don't have an account? Sign In</button>
+        </div>
+
+    </form>
+
+
+
+    <div id="signUpForm"
+        style="width: 400px; background: white; padding: 20px; margin-top: 20px; border-radius: 10px; display: none;">
+        <h4 class="text-center">Create New Account</h4>
+        <form id="signUp">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" id="newName" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="newEmail" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Sign In</button>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            var email = document.getElementById("exampleInputEmail1").value;
+            var username = document.getElementById("exampleInputPassword1").value;
+            try {
+
+
+                const response = await fetch("https://edu-me01.github.io/Json-Data/Digital-Library.json");
+                const data = await response.json();
+                users = data.users;
+
+                //                //
+                // const localUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+                // // دمج المستخدمين
+                // const allUsers = [...userrs, ...localUsers];
+
+
+                const x = users.find(user => user.email === email && user.name === username);
+                if (x) {
+                    localStorage.setItem("y", JSON.stringify(username));
+                    Swal.fire({
+                        icon: "success",
+                        title: "تم تسجيل الدخول بنجاح",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    setTimeout(() => {
+                        window.location.href = "home.html";
+                    }, 2000);
+                    ;
+                }
+
+                else {
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "بيانات غير صحيحة",
+                        text: "برجاء التحقق من البريد واسم المستخدم"
+                    });
+                }
+            } catch (error) {
+                console.error("خطأ أثناء الاتصال بـ API:", error);
+                Swal.fire({
+                    icon: "error",
+                    title: "فشل الاتصال",
+                    text: "تعذر الاتصال بالخادم. حاول مرة أخرى لاحقًا."
+                });
+            }
+        });
+
+
+
+//         document.getElementById("signUpToggle").addEventListener("click", () => {
+//             const signUpForm = document.getElementById("signUpForm");
+//             signUpForm.style.display = signUpForm.style.display === "none" ? "block" : "none";
+//         });
+
+//         // ✅ sign up form
+//         document.getElementById("signUp").addEventListener("submit", function (e) {
+//             e.preventDefault();
+//             const name = document.getElementById("newName").value.trim();
+//             const email = document.getElementById("newEmail").value.trim();
+
+//             if (!name || !email) {
+//                 Swal.fire("خطأ", "الرجاء ملء كل الحقول", "error");
+//                 return;
+//             }
+
+//             let users = JSON.parse(localStorage.getItem("users")) || [];
+
+//             const exists = users.find(u => u.email === email);
+//             if (exists) {
+//                 Swal.fire("موجود مسبقًا", "هذا الإيميل مسجل بالفعل", "warning");
+//                 return;
+//             }
+
+//             const newUser = {
+//                 id: Date.now(),
+//                 name,
+//                 email,
+//                 profileImageUrl: "",
+//                 bio: "New User",
+//                 address: {}
+//             };
+
+//             users.push(newUser);
+//             localStorage.setItem("users", JSON.stringify(users));
+
+//             Swal.fire("تم!", "تم إنشاء الحساب بنجاح", "success");
+
+//             this.reset();
+//             document.getElementById("signUpForm").style.display = "none";
+//         });
+    </script>
+ </body>
+
+ </html>
